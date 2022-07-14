@@ -33,7 +33,6 @@ def display_entry(request, entry):
 
         for i in range(len(entries)):
             if entry.lower() in entries[i].lower():
-                print(True)
                 similar_entries.append(entries[i])
 
         print(f"similar_entries: {similar_entries}")
