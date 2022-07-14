@@ -9,7 +9,12 @@
             <img src="/static/encyclopedia/illustrations/taxi-page-not-found-2.svg" alt="Not Found Illustration">
         </div>
         <div class="error-message">
-            <p><span>Unfortunately {{ entry }} doesn't exist yet. </span><br><a href="#">Would you like to create this entry?</a></p>
+            <h1>Unfortunately {{ entry }} doesn't exist yet. </h1><br>
+
+            {% if %}
+            
+            <a href="#">Would you like to create this entry?</a>
+
         </div>
     </div>
 
