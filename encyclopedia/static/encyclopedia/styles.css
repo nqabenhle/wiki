@@ -31,18 +31,10 @@ textarea {
 
 .wrapper {
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-around;
+  padding-top: 30px; }
 
 .illustration-lg img {
   height: 500px; }
-
-.error-message {
-  display: table; }
-  .error-message p {
-    display: table-cell;
-    vertical-align: middle; }
-    .error-message p span {
-      font-size: 2em;
-      font-weight: 900; }
 
 /*# sourceMappingURL=styles.css.map */
