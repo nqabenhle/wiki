@@ -31,3 +31,9 @@ def display_entry(request, entry):
        return render(request, "encyclopedia/error.html", {
             "entry": entry.upper()
        }) 
+
+def search(request):
+    
+    form = request.GET["q"]
+
+    return display_entry(request, entry=form)
