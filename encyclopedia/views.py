@@ -2,6 +2,7 @@ from django.shortcuts import render
 from markdown2 import Markdown
 from django import forms
 from django.http import HttpResponseRedirect
+from random import choice
 
 from . import util
 
@@ -75,3 +76,7 @@ def new_entry(request):
         return render(request, "encyclopedia/new_entry.html", {
             "form": NewEntryForm()
         })
+
+def random_entry(request):
+
+    return HttpResponseRedirect(f"/wiki/{choice(util.list_entries())}")
