@@ -33,9 +33,20 @@ def display_entry(request, entry):
 
     else:
 
-       return render(request, "encyclopedia/error.html", {
-            "entry": entry.upper()
-       }) 
+        entries = util.list_entries()
+        similar_entries = []
+
+        for i in range(len(entries)):
+            if entry.lower() in entries[i].lower():
+                similar_entries.append(entries[i])
+
+        print(f"similar_entries: {similar_entries}")
+
+
+        return render(request, "encyclopedia/error.html", {
+                "entry": entry.upper(),
+                "similar_entries": similar_entries
+        }) 
 
 def search(request):
     
@@ -79,7 +90,7 @@ def new_entry(request):
             "form": NewEntryForm()
         })
 
-def random_entry():
+def random_entry(request):
 
     return HttpResponseRedirect(f"/wiki/{choice(util.list_entries())}")
 

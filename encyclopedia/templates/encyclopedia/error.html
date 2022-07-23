@@ -14,12 +14,12 @@
                 {% if similar_entries %}
                     <h4>Similar Entries:</h4>
                     {% for entry in similar_entries %}
-                        <li><a href="#">{{ entry }}</a></li>
+                        <li><a href="{% url 'wiki:display_entry' entry=entry%}">{{ entry }}</a></li>
                     {% endfor %}
 
                 {% endif %}
                 
-                <a href="#">Would you like to create this entry?</a>
+                <a href="{% url 'wiki:new_entry' %}">Would you like to create this entry?</a>
         </div>
     </div>
 

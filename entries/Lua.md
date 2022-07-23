@@ -1,3 +1,3 @@
 # Lua
 #### Description: 
-Lua is for building interactive games.
+Lua is for building interactive games and apps.
