@@ -36,13 +36,4 @@ textarea {
 .illustration-lg img {
   height: 500px; }
 
-.error-message {
-  display: table; }
-  .error-message p {
-    display: table-cell;
-    vertical-align: middle; }
-    .error-message p span {
-      font-size: 2em;
-      font-weight: 900; }
-
 /*# sourceMappingURL=styles.css.map */
