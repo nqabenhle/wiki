@@ -30,10 +30,12 @@ textarea {
   margin-top: 5px; }
 
 .wrapper {
-  display: flex;
-  justify-content: space-around; }
+  display: flex; }
 
 .illustration-lg img {
   height: 500px; }
+
+.error-message {
+  padding-top: 30px; }
 
 /*# sourceMappingURL=styles.css.map */

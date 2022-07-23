@@ -33,6 +33,7 @@ def display_entry(request, entry):
 
     else:
 
+<<<<<<< HEAD
        return render(request, "encyclopedia/error.html", {
             "entry": entry.upper()
        }) 
@@ -128,3 +129,19 @@ def edit_entry(request, title):
             "form": EditEntryForm(title=title, content=markdown_content),
             "title": title
         })
+=======
+        entries = util.list_entries()
+        similar_entries = []
+
+        for i in range(len(entries)):
+            if entry.lower() in entries[i].lower():
+                similar_entries.append(entries[i])
+
+        print(f"similar_entries: {similar_entries}")
+
+
+        return render(request, "encyclopedia/error.html", {
+                "entry": entry.upper(),
+                "similar_entries": similar_entries
+        }) 
+>>>>>>> index
