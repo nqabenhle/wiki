@@ -1,2 +1,2 @@
 ## Cake
-I love cake.
+I love chocolate cakes.

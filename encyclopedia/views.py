@@ -20,9 +20,11 @@ def display_entry(request, entry):
 
         try:
             data = markdowner.convert(util.get_entry(entry.capitalize()))
+            entry = entry.capitalize()
 
         except TypeError:
             data = markdowner.convert(util.get_entry(entry.upper()))
+            entry = entry.upper()
 
         return render(request, "encyclopedia/display.html", {
             "title": entry,
@@ -80,3 +82,49 @@ def new_entry(request):
 def random_entry():
 
     return HttpResponseRedirect(f"/wiki/{choice(util.list_entries())}")
+
+class EditEntryForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        try:
+            self.title = kwargs.pop("title")
+            self.content = kwargs.pop("content")
+            super(EditEntryForm, self).__init__(*args, **kwargs)
+            self.fields["Title"].widget = forms.TextInput(attrs={"value": self.title})
+            self.fields["Content"].widget = forms.Textarea()
+            self.fields["Content"].initial = self.content
+        except KeyError:
+            super(EditEntryForm, self).__init__(*args, **kwargs)
+            self.fields["Title"].widget = forms.TextInput()
+            self.fields["Content"].widget = forms.Textarea()
+
+    Title = forms.CharField()
+    Content = forms.CharField()
+
+def edit_entry(request, title):
+
+    if request.method == "POST":
+        form = EditEntryForm(request.POST)
+
+        if form.is_valid():
+
+            title = form.cleaned_data["Title"]
+            markdown_content = form.cleaned_data["Content"]
+            util.save_entry(title, markdown_content)
+            
+            return HttpResponseRedirect(f"/wiki/{title}")
+
+        else:
+            return render(request, "encyclopedia/edit_entry.html", {
+                "form": form,
+                "title": title
+            })
+
+        
+    else:
+
+        markdown_content = util.get_entry(title)
+        
+        return render(request, "encyclopedia/edit_entry.html", {
+            "form": EditEntryForm(title=title, content=markdown_content),
+            "title": title
+        })
