@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %} Error Occurred {% endblock %}
+
+{% block body %}
+
+    <div class="wrapper">
+        <div class="illustration-lg">
+            <img src="/static/encyclopedia/illustrations/taxi-page-not-found-2.svg" alt="Not Found Illustration">
+        </div>
+        <div class="error-message">
+            <p><span>Unfortunately {{ entry }} doesn't exist yet. </span><br><a href="{% url 'wiki:new_entry' %}">Would you like to create this entry?</a></p>
+        </div>
+    </div>
+
+{% endblock %}
