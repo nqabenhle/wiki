@@ -77,6 +77,6 @@ def new_entry(request):
             "form": NewEntryForm()
         })
 
-def random_entry(request):
+def random_entry():
 
     return HttpResponseRedirect(f"/wiki/{choice(util.list_entries())}")
