@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   margin: 0;
   background-color: white; }
@@ -27,9 +28,10 @@ textarea {
   height: 100vh;
   padding: 20px; }
   .sidebar a {
-    color: #fafafa; }
+    color: #fafafa;
+    text-decoration: none; }
   .sidebar a:hover {
-    color: #fafafa !important; }
+    text-decoration: underline; }
 
 .sidebar h2 {
   margin-top: 5px; }
@@ -42,5 +44,8 @@ textarea {
 
 .error-message {
   padding-top: 30px; }
+
+.pages-list::before {
+  content: "👉"; }
 
 /*# sourceMappingURL=styles.css.map */

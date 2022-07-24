@@ -37,9 +37,10 @@ textarea {
     padding: 20px;
     a {
         color: #fafafa;
+        text-decoration: none;
     }
     a:hover {
-        color: #fafafa !important;
+        text-decoration: underline;
     }
 }
 
@@ -57,4 +58,11 @@ textarea {
 
 .error-message {
     padding-top: 30px;
+}
+
+.pages-list{
+    list-style-type: none;
+    li::before {
+        content: "👉";
+    }
 }
