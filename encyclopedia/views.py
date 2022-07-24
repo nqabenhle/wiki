@@ -52,7 +52,7 @@ def search(request):
     
     form = request.GET["q"]
 
-    return display_entry(request, entry=form)
+    return HttpResponseRedirect(f"/wiki/{form}")
 
 class NewEntryForm(forms.Form):
     title = forms.CharField()
