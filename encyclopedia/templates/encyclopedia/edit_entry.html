@@ -13,8 +13,16 @@
         {% endif %}
         
         {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Submit"> 
+        {% for field in form %}
+            <div class="mb-3">
+                <div class="count-char"></div>
+                {{ field }}
+            </div>
+        {% endfor %}
+        <div class="submit-container">
+            <input class="submit-btn" type="submit" value="Submit">
+        </div>
+
         {% if form.errors %}
             {% for field in form %}
                 {% for error in field.errors %}

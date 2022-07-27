@@ -4,6 +4,7 @@ $illustrations-lg: 500px;
 body {
     margin: 0;
     background-color: white;
+    min-width: 280px;
 }
 
 code {
@@ -46,6 +47,12 @@ textarea {
 
 .sidebar h2 {
     margin-top: 5px;
+    font-family: 'Trade Winds', cursive;
+    font-size: 50px;
+}
+
+.main {
+    font-family: 'Share Tech', sans-serif;
 }
 
 .wrapper {
@@ -64,5 +71,72 @@ textarea {
     list-style-type: none;
     li::before {
         content: "👉";
+    }
+    a {
+        text-decoration: none;
+        color: #212529;
+    }
+    a:hover {
+        text-decoration: underline;
+        color: royalblue;
+    }
+}
+
+.index-body {
+    display: flex;
+}
+
+.mkdown-content {
+    height: 60vh;
+    width: 95%;
+}
+
+.title-input {
+    width: 25%;
+}
+
+.submit-container {
+    width: 100%;
+    text-align: right;
+    padding-right: 5%;
+    .submit-btn {
+        border-radius: 7px;
+        background-color: #000;
+        color: #fafafa;
+        padding: 5px 10px;
+    }
+    .submit-btn:hover {
+        color: royalblue;
+    }
+}
+
+p.char-count {
+    text-align: right;
+    padding-right: 5%;
+    margin-bottom: 0 !important;
+}
+
+.quote-wrapper {
+    display: table;
+}
+
+p.quote {
+    font-family: 'Quantico', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 576px) {
+    .wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .index-body:nth-child(2), .quote-wrapper {
+        display: none;
     }
 }

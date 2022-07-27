@@ -55,8 +55,8 @@ def search(request):
     return HttpResponseRedirect(f"/wiki/{form}")
 
 class NewEntryForm(forms.Form):
-    title = forms.CharField()
-    markdown_content = forms.CharField(label='', widget=forms.Textarea(attrs={'placeholder': 'Write your article here. Use markdown language', 'rows':'3', 'cols':'5'}))
+    title = forms.CharField(widget=forms.TextInput(attrs={"class":"form-control title-input", "placeholder":"Title"}))
+    markdown_content = forms.CharField(label='', widget=forms.Textarea(attrs={'placeholder': 'Write your article here. Use markdown language', "class":"form-control mkdown-content"}))
 
 def new_entry(request):
 
@@ -100,8 +100,8 @@ class EditEntryForm(forms.Form):
             self.title = kwargs.pop("title")
             self.content = kwargs.pop("content")
             super(EditEntryForm, self).__init__(*args, **kwargs)
-            self.fields["Title"].widget = forms.TextInput(attrs={"value": self.title})
-            self.fields["Content"].widget = forms.Textarea()
+            self.fields["Title"].widget = forms.TextInput(attrs={"value": self.title, "class":"form-control title-input", "placeholder":"Title"})
+            self.fields["Content"].widget = forms.Textarea(attrs={"class":"form-control mkdown-content"})
             self.fields["Content"].initial = self.content
         except KeyError:
             super(EditEntryForm, self).__init__(*args, **kwargs)

@@ -1,7 +1,8 @@
 @charset "UTF-8";
 body {
   margin: 0;
-  background-color: white; }
+  background-color: white;
+  min-width: 280px; }
 
 code {
   white-space: pre; }
@@ -34,7 +35,12 @@ textarea {
     text-decoration: underline; }
 
 .sidebar h2 {
-  margin-top: 5px; }
+  margin-top: 5px;
+  font-family: 'Trade Winds', cursive;
+  font-size: 50px; }
+
+.main {
+  font-family: 'Share Tech', sans-serif; }
 
 .wrapper {
   display: flex; }
@@ -45,7 +51,60 @@ textarea {
 .error-message {
   padding-top: 30px; }
 
-.pages-list::before {
-  content: "👉"; }
+.pages-list {
+  list-style-type: none; }
+  .pages-list li::before {
+    content: "👉"; }
+  .pages-list a {
+    text-decoration: none;
+    color: #212529; }
+  .pages-list a:hover {
+    text-decoration: underline;
+    color: royalblue; }
+
+.index-body {
+  display: flex; }
+
+.mkdown-content {
+  height: 60vh;
+  width: 95%; }
+
+.title-input {
+  width: 25%; }
+
+.submit-container {
+  width: 100%;
+  text-align: right;
+  padding-right: 5%; }
+  .submit-container .submit-btn {
+    border-radius: 7px;
+    background-color: #000;
+    color: #fafafa;
+    padding: 5px 10px; }
+  .submit-container .submit-btn:hover {
+    color: royalblue; }
+
+p.char-count {
+  text-align: right;
+  padding-right: 5%;
+  margin-bottom: 0 !important; }
+
+.quote-wrapper {
+  display: table; }
+
+p.quote {
+  font-family: 'Quantico', sans-serif;
+  font-size: 30px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle; }
+
+@media screen and (max-width: 576px) {
+  .wrapper {
+    flex-direction: column;
+    text-align: center; } }
+@media screen and (max-width: 768px) {
+  .index-body:nth-child(2), .quote-wrapper {
+    display: none; } }
 
 /*# sourceMappingURL=styles.css.map */
