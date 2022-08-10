@@ -71,7 +71,7 @@ def new_entry(request):
 
             if util.get_entry(title.capitalize()) is None and util.get_entry(title.upper()) is None:
                 util.save_entry(title.capitalize(), markdown_content)
-                return HttpResponseRedirect("/wiki")
+                return HttpResponseRedirect(f"/wiki/{title.capitalize()}")
 
             else:
                 return render(request, "encyclopedia/new_entry.html", {
